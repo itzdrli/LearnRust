@@ -4,25 +4,41 @@ use std::cmp::Ordering;
 
 fn main() {
 
-    // 用户指定x值
-    println!("input x");
-    let mut x = String::new();
-    io::stdin()
-        .read_line(&mut x)
-        .expect("ERROR");
 
-    // 用户指定y值
-    println!("input y");
-    let mut y = String::new();
-    io::stdin()
-        .read_line(&mut y)
-        .expect("ERROR");
+    loop {
+        // 用户指定x值
+        println!("input x");
+        let mut x = String::new();
+        io::stdin()
+            .read_line(&mut x)
+            .expect("ERROR");
+        let x: u32 = match x.trim().parse() {
+            Ok(num) => {
+                println!("x = {x}");
+                break;
+            }
+            Err(_) => continue,
+        };
+    }
+
+    loop {
+        // 用户指定y值
+        println!("input y");
+        let mut y = String::new();
+        io::stdin()
+            .read_line(&mut y)
+            .expect("ERROR");
+        let y: u32 = match y.trim().parse() {
+            Ok(num) => {
+                println!("y = {y}");
+                break;
+            }
+            Err(_) => continue,
+        };
+    }
 
     // 随机生成z值
     let z = rand::thread_rng().gen_range(1..=10);
-
-    // 输出用户指定的x和y值
-    println!("x={}\ry={}", x, y);
 
     loop {
             // 用户输入猜测的z值
