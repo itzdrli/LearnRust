@@ -1,15 +1,14 @@
-use std::cmp::Ordering;
-use std::io;
+// use std::io;
 
 fn main() {
-    println!("a1");
+    let mut x = 0;
 
-    function(23145);
+    let y = loop {
+        x += 1;
+        if x == 10 {
+            break x;
+        }
+    };
+    println!("{y}");
 }
 
-fn function(x: u32) {
-    let y = 56;
-    println!("{x}");
-    let z = x + y;
-    println!("{z}")
-}
